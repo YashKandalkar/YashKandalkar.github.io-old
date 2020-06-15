@@ -1,6 +1,7 @@
 import React from 'react';
 import './BottomTab.css';
 import useWindowDimensions from '../useWindowDimentions';
+import ContactMe from '../ContactMe/ContactMe'
 
 import { 
     motion, 
@@ -9,26 +10,25 @@ import {
 } from 'framer-motion';
 
                               
-const BottomTab = () => {
+const BottomTab = ( {activeTab, onOpen} ) => {
     const { height, width } = useWindowDimensions();
     const isPhone = (width <= 480);
 
     const dragConstraints = (isPhone)?
                             {
                                 top: 0,
-                                bottom: height - 20
+                                bottom: height - 30
                             }
                             :
                             {
-                                top: height*0.5,
-                                bottom: height - 20
+                                top: height*0.5 - 30,
+                                bottom: height - 30
                             }
 
 
     const dragTransition = { 
         bounceStiffness: 600, 
         bounceDamping: 30,
-        // max: 0
     }
 
     let animate = {
@@ -46,9 +46,14 @@ const BottomTab = () => {
         [1, 0]
     );
 
+    if(activeTab !== 'BOTTOM'){
+        y.set(dragConstraints.bottom)
+    }
+
     const onTap = (event, info) => {
         if (y.current === dragConstraints.bottom){
             y.set(dragConstraints.top)
+            onOpen();
         }
         else if (y.current === dragConstraints.top){
             y.set(dragConstraints.bottom)
@@ -67,12 +72,12 @@ const BottomTab = () => {
                 dragElastic={0.2}
                 dragTransition={dragTransition}
                 onTap={onTap}
-                //onDrag={(e, info)=>}
             />
             <motion.div
                 className="bottom-tab-content"
                 style={{opacity, y}}
             >
+                <ContactMe />
             </motion.div>
         </div>
     )

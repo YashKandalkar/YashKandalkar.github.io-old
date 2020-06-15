@@ -10,21 +10,21 @@ import {
 } from 'framer-motion';
 
                               
-const RightTab = () => {
+const RightTab = ( {activeTab, onOpen} ) => {
     const { width } = useWindowDimensions();
-    const [open, setOpen] = useState(false);
+    const [state, setState] = useState({open: false});
 
     const isPhone = (width <= 480);
 
     const dragConstraints = (isPhone)?
                             {
                                 left: 0,
-                                right: width - 20
+                                right: width - 30
                             }
                             :
                             {
-                                left: width*0.5-20,
-                                right: width - 20
+                                left: width*0.5-30,
+                                right: width - 30
                             }
 
 
@@ -49,12 +49,19 @@ const RightTab = () => {
         [1, 0]
     );
 
+
+    if(activeTab !== 'RIGHT'){
+        //x.set(dragConstraints.right)
+    }
+
+
     useEffect(() => {
         function updateOpen() {
           if(x.get() <= dragConstraints.left){
-            setOpen(true)
+            setState({open: true});
+
           } else{
-            setOpen(false)
+            setState({open: false});
           }
         }
 
@@ -68,22 +75,23 @@ const RightTab = () => {
     const onTap = (event, info) => {
         if (x.current === dragConstraints.right){
             x.set(dragConstraints.left);
-            setOpen(true);
-            event.target.parentElement.style.zIndex = '999';
+            setState({open: true});
+            onOpen();
+            // event.target.parentElement.style.zIndex = '999';
         }
         else if (x.current === dragConstraints.left){
             x.set(dragConstraints.right);
-            setOpen(false);
-            event.target.parentElement.style.zIndex = '0';
+            setState({open: false});
+            // event.target.parentElement.style.zIndex = '0';
         }
     }
 
     const onDrag = (event, info) => {
         if(x.current <= dragConstraints.left+40){
-            setOpen(true);
+            setState({open: true});
         }
         else{
-            setOpen(false);
+            setState({open: false});
         }
     }
    
@@ -106,7 +114,7 @@ const RightTab = () => {
                 className="right-tab-content"
                 style={{opacity, x}}
             >
-                <Projects isOpen={open}/>
+                <Projects isOpen={state.open}/>
             </motion.div>
         </div>
     )

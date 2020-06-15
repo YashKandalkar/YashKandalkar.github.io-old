@@ -1,15 +1,13 @@
 .right-tab{
     display: flex;
     height: 100vh;
-    /*flex-direction: column;*/
 }
 
 .right-tab-arrow{
-    /*position: fixed;*/
-    width: 20px;
+    width: 30px;
     background: #fff;
     opacity: 0.5;
-    z-index: 9999;
+    z-index: 99;
 }
 
 .right-tab-content{
