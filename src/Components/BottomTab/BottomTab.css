@@ -1,0 +1,35 @@
+.bottom-tab{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    /*position: absolute;
+    top: calc(100vh - 20px);*/
+    /*flex-direction: column;*/
+}
+
+.bottom-tab-arrow{
+    position: absolute;
+    top:0;
+    height: 20px;
+    width: 100vw;
+    background: #fff;
+    opacity: 0.5;
+    /*border-top-left-radius: 100%;
+    border-top-right-radius: 100%;*/
+}
+
+.bottom-tab-content{
+    position: absolute;
+    top: 20px;
+    height: 50vh;
+    width: 100%;
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@media only screen and (max-width: 480px){
+    .bottom-tab-content{
+        height: 100vh;
+    }
+}
