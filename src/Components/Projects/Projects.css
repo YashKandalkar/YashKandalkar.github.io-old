@@ -7,8 +7,9 @@
     font-family: Arbutus Slab;
     font-size: 2em;
     color: #DDFC74;
+    text-align: center;
 }
 
 #project-items-container{
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
 }

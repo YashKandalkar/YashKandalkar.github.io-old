@@ -10,7 +10,7 @@ import {
 } from 'framer-motion';
 
                               
-const RightTab = ( {activeTab, onOpen} ) => {
+const RightTab = ( {activeTab, onOpen, onClose} ) => {
     const { width } = useWindowDimensions();
     const [state, setState] = useState({open: false});
 
@@ -77,12 +77,11 @@ const RightTab = ( {activeTab, onOpen} ) => {
             x.set(dragConstraints.left);
             setState({open: true});
             onOpen();
-            // event.target.parentElement.style.zIndex = '999';
         }
         else if (x.current === dragConstraints.left){
             x.set(dragConstraints.right);
             setState({open: false});
-            // event.target.parentElement.style.zIndex = '0';
+            onClose();
         }
     }
 
@@ -92,6 +91,12 @@ const RightTab = ( {activeTab, onOpen} ) => {
         }
         else{
             setState({open: false});
+        }
+        if(x.current < dragConstraints.left){
+            onOpen();
+        }
+        if(x.current === dragConstraints.right){
+            onClose();
         }
     }
    
