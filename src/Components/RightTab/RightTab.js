@@ -44,7 +44,6 @@ const RightTab = ( {activeTab, onOpen} ) => {
     const dragTransition = { 
         bounceStiffness: 600, 
         bounceDamping: 30,
-        // max: 0
     }
 
     let animate = {
@@ -61,12 +60,6 @@ const RightTab = ( {activeTab, onOpen} ) => {
         [dragConstraints.left, dragConstraints.right],
         [1, 0]
     );
-
-
-    if(activeTab !== 'RIGHT'){
-        //x.set(dragConstraints.right)
-    }
-
 
     useEffect(() => {
         function updateOpen() {

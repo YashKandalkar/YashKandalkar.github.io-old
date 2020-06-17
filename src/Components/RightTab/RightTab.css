@@ -6,7 +6,6 @@
 .right-tab-arrow{
     width: 30px;
     background: #fff;
-    /*opacity: 0.5;*/
     z-index: 99;
     display: flex;
     justify-content: center;
