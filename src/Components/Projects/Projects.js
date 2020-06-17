@@ -29,8 +29,14 @@ const Projects = ({ isOpen }) => {
     }
 
     const item = {
-      visible: { opacity: 1, x: 0 },
-      hidden: { opacity: 0, x: 100 },
+        visible: {
+            opacity: 1,
+            x: 0,
+        },
+        hidden: {
+            opacity: 0,
+            x: 100,
+        }
     }
 
     return(
@@ -49,6 +55,7 @@ const Projects = ({ isOpen }) => {
                     description="A prototype site for streaming music"
                     variant={item}
                     img={canary}
+                    url={"https://YashKandalkar.github.io/canary"}
                 />
 
                 <ProjectItem 
@@ -56,6 +63,7 @@ const Projects = ({ isOpen }) => {
                     description="A multiplayer TicTacToe game using Firebase"
                     variant={item}
                     img={tictactoe}
+                    url={"https://games-12e17.web.app/"}
                 />
                 
                 <ProjectItem 
@@ -63,6 +71,7 @@ const Projects = ({ isOpen }) => {
                     description="What's better than talking to someone who won't judge you?"
                     variant={item}
                     img={chatitdude}
+                    url={"http://chat-it-dude.herokuapp.com/"}
                 />
 
                 <ProjectItem 
@@ -70,6 +79,7 @@ const Projects = ({ isOpen }) => {
                     description="A hackathone project made to help illiterate people study financial policies"
                     variant={item}
                     img={tachyons}
+                    url={"https://YashKandalkar.github.io/tachyons"}
                 />
                 
             </motion.div>

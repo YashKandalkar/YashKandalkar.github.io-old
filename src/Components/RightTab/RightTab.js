@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './RightTab.css';
 import Projects from '../Projects/Projects'
 import useWindowDimensions from '../useWindowDimentions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { 
     motion, 
@@ -9,8 +10,20 @@ import {
     useTransform
 } from 'framer-motion';
 
+import { 
+    faArrowLeft
+} from '@fortawesome/free-solid-svg-icons';
+
+const arrowVariants = {
+    left: {
+        transform: "rotate(180deg)"
+    },
+    right: {
+        transform: "rotate(0deg)"
+    }
+}
                               
-const RightTab = ( {activeTab, onOpen, onClose} ) => {
+const RightTab = ( {activeTab, onOpen} ) => {
     const { width } = useWindowDimensions();
     const [state, setState] = useState({open: false});
 
@@ -81,7 +94,6 @@ const RightTab = ( {activeTab, onOpen, onClose} ) => {
         else if (x.current === dragConstraints.left){
             x.set(dragConstraints.right);
             setState({open: false});
-            onClose();
         }
     }
 
@@ -91,12 +103,6 @@ const RightTab = ( {activeTab, onOpen, onClose} ) => {
         }
         else{
             setState({open: false});
-        }
-        if(x.current < dragConstraints.left){
-            onOpen();
-        }
-        if(x.current === dragConstraints.right){
-            onClose();
         }
     }
    
@@ -114,7 +120,14 @@ const RightTab = ( {activeTab, onOpen, onClose} ) => {
                 dragMomentum={true}
                 onTap={onTap}
                 onDrag={onDrag}
-            />
+            >
+                <motion.div
+                    variants={arrowVariants}
+                    animate={(state.open)?'left':'right'}
+                >
+                    <FontAwesomeIcon icon={faArrowLeft}/>
+                </motion.div>
+            </motion.div>
             <motion.div
                 className="right-tab-content"
                 style={{opacity, x}}

@@ -1,7 +1,7 @@
 import React from 'react';
 import './BottomTab.css';
 import useWindowDimensions from '../useWindowDimentions';
-import ContactMe from '../ContactMe/ContactMe'
+import ContactMe from '../ContactMe/ContactMe';
 
 import { 
     motion, 

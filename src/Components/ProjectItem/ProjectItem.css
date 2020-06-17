@@ -7,22 +7,27 @@
     padding: 5px;
     user-select: none;
     cursor: pointer;
+    height: initial;
 }
 
 .preview{
-    width: 75px;
-    height: 75px;
+    width: 30%;
+    height: fit-content;
+    max-width: 100px;
+    max-height: 100px;
+    /*height: 75px;*/
 }
 
 .preview>img{
-    width: 75px;
-    height: 75px;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
 }
 
 .content{
     display: flex;
     flex-direction: column;
+    width: 70%;
     text-align: left;
     padding: 5px;
     padding-left: 10px;
@@ -34,10 +39,15 @@
 
 .description{
     font-size: 1em;
-    width: 34vw;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+
+.go-to-website{
+    align-self: flex-end;
+    color: darkturquoise;
+    text-decoration:none;
 }
 
 @media only screen and (max-width: 480px){

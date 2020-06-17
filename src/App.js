@@ -20,16 +20,13 @@ const particlesOptions = {
 
 const App = () => {
   const [state, setState] = useState({
-    activeTab: '',
-    main_content_z: -1
+    activeTab: ''
   });
   const { height, width } = useWindowDimensions();
   const onRightTabOpen = () => {
-    setState({activeTab: 'RIGHT', main_content_z: -1});
+    setState({activeTab: 'RIGHT'});
   }
-  const onRightTabClose = () => {
-    setState({main_content_z: 1});
-  }
+  
   const onBottomTabOpen = () => {
     setState({activeTab: 'BOTTOM'})
   }
@@ -41,11 +38,10 @@ const App = () => {
         width={width}
         height={height}
       />
-      <Main contentZ={state.main_content_z}/>
+      <Main />
       <RightTab 
         activeTab={state.activeTab} 
         onOpen={onRightTabOpen}
-        onClose={onRightTabClose}
       />
       <BottomTab 
         activeTab={state.activeTab}
