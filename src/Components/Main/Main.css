@@ -11,14 +11,15 @@
 }
 
 #main-content{
-    height: 80%;
-    width: 80%;
-    opacity: 0.8;
-    border-radius: 10px;
-    box-shadow: 3px 3px 11px 0px black;
-    background: white;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    /* border-radius: 10px; */
+    /* box-shadow: 3px 3px 11px 0px black; */
     overflow-y: scroll;
+    color: black;
     font-family: Arbutus Slab;
+    background: transparent;
 }
 
 .top{
