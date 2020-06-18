@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Particles from 'react-particles-js';
 import Main from './Components/Main/Main';
@@ -19,17 +19,8 @@ const particlesOptions = {
 }
 
 const App = () => {
-  const [state, setState] = useState({
-    activeTab: ''
-  });
   const { height, width } = useWindowDimensions();
-  const onRightTabOpen = () => {
-    setState({activeTab: 'RIGHT'});
-  }
   
-  const onBottomTabOpen = () => {
-    setState({activeTab: 'BOTTOM'})
-  }
   return (
     <div className="App">
       <Particles 
@@ -39,14 +30,8 @@ const App = () => {
         height={height}
       />
       <Main />
-      <RightTab 
-        activeTab={state.activeTab} 
-        onOpen={onRightTabOpen}
-      />
-      <BottomTab 
-        activeTab={state.activeTab}
-        onOpen={onBottomTabOpen}
-      />
+      <RightTab />
+      <BottomTab />
     </div>
   );
 }

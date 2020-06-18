@@ -3,27 +3,14 @@ import './RightTab.css';
 import Projects from '../Projects/Projects'
 import useWindowDimensions from '../useWindowDimentions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { 
     motion, 
     useMotionValue, 
     useTransform
 } from 'framer-motion';
-
-import { 
-    faArrowLeft
-} from '@fortawesome/free-solid-svg-icons';
-
-const arrowVariants = {
-    left: {
-        transform: "rotate(180deg)"
-    },
-    right: {
-        transform: "rotate(0deg)"
-    }
-}
-                              
-const RightTab = ( {activeTab, onOpen} ) => {
+                          
+const RightTab = ( {activeTab} ) => {
     const { width } = useWindowDimensions();
     const [state, setState] = useState({open: false});
 
@@ -61,6 +48,12 @@ const RightTab = ( {activeTab, onOpen} ) => {
         [1, 0]
     );
 
+    const arrowRotation = useTransform(
+        x,
+        [dragConstraints.left, dragConstraints.right],
+        [180, 0]
+    )
+
     useEffect(() => {
         function updateOpen() {
           if(x.get() <= dragConstraints.left){
@@ -82,7 +75,6 @@ const RightTab = ( {activeTab, onOpen} ) => {
         if (x.current === dragConstraints.right){
             x.set(dragConstraints.left);
             setState({open: true});
-            onOpen();
         }
         else if (x.current === dragConstraints.left){
             x.set(dragConstraints.right);
@@ -115,10 +107,9 @@ const RightTab = ( {activeTab, onOpen} ) => {
                 onDrag={onDrag}
             >
                 <motion.div
-                    variants={arrowVariants}
-                    animate={(state.open)?'left':'right'}
+                     style={{transform: 'rotate('+arrowRotation.current+'deg)'}}
                 >
-                    <FontAwesomeIcon icon={faArrowLeft}/>
+                    <FontAwesomeIcon icon={faArrowLeft} />
                 </motion.div>
             </motion.div>
             <motion.div

@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './BottomTab.css';
 import useWindowDimensions from '../useWindowDimentions';
 import ContactMe from '../ContactMe/ContactMe';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { 
     motion, 
     useMotionValue, 
     useTransform
 } from 'framer-motion';
-
                               
-const BottomTab = ( {activeTab, onOpen} ) => {
+const BottomTab = ( {activeTab} ) => {
     const { height, width } = useWindowDimensions();
+    const [state, setState] = useState({open: false});
+
     const isPhone = (width <= 480);
 
     const dragConstraints = (isPhone)?
@@ -46,17 +48,36 @@ const BottomTab = ( {activeTab, onOpen} ) => {
         [1, 0]
     );
 
-    if(activeTab !== 'BOTTOM'){
-        y.set(dragConstraints.bottom)
-    }
+    const arrowRotation = useTransform(
+        y,
+        [dragConstraints.top, dragConstraints.bottom],
+        [180, 0]
+    );
+
+    useEffect(() => {
+        function updateOpen() {
+          if(y.get() <= dragConstraints.top){
+            setState({open: true});
+          } else{
+            setState({open: false});
+          }
+        }
+
+        const unsubscribeY = y.onChange(updateOpen)
+
+        return () => {
+          unsubscribeY()
+        }
+      }, [dragConstraints.top, y])
 
     const onTap = (event, info) => {
-        if (y.current === dragConstraints.bottom){
-            y.set(dragConstraints.top)
-            onOpen();
+        if (y.get() >= dragConstraints.bottom-20){
+            y.set(dragConstraints.top);
+            setState({open: true});
         }
-        else if (y.current === dragConstraints.top){
-            y.set(dragConstraints.bottom)
+        else if (y.get() <= dragConstraints.top+20){
+            y.set(dragConstraints.bottom);
+            setState({open: false});
         }
     }
    
@@ -72,7 +93,13 @@ const BottomTab = ( {activeTab, onOpen} ) => {
                 dragElastic={0.2}
                 dragTransition={dragTransition}
                 onTap={onTap}
-            />
+            >
+                <motion.div
+                     style={{transform: 'rotate('+arrowRotation.get()+'deg)'}}
+                >
+                    <FontAwesomeIcon icon={faArrowUp} />
+                </motion.div>
+            </motion.div>
             <motion.div
                 className="bottom-tab-content"
                 style={{opacity, y}}

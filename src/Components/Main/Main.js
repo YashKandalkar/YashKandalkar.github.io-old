@@ -53,7 +53,7 @@ const Main = () => {
                         When I entered the examination room, most of the participants
                         were from 3rd, 4th year. Neverthless, I gave the exam,
                         and waited for the results. I did not qualify. I wasn't too sad 
-                        tough. I thought this was my first competition, and I had a lot
+                        though. I thought this was my first competition, and I had a lot
                         to learn. During this time, I was in 12th. The decisive year for
                         Indian students. I was already in an integrated class for JEE 
                         preparation. I still think I shouldn't have joined that class.
@@ -65,7 +65,7 @@ const Main = () => {
                         true for some children, it is definetely not true for everyone.
                         Even if you are not in the best college, you can still get the 
                         best job if you have the right skills. So I started giving less
-                        time to studying and more time to learn new thing abount 
+                        time to studying and more time towards learning new things about 
                         programming. I even started learning about IoT after seeing 
                         a friend of mine making cool things. I just started learning
                         anything that looked interesting to me. So after some time I 
@@ -81,8 +81,10 @@ const Main = () => {
                         long "PUBG Phase" too :P <br />
                         So, that's all about me. One last thing I'd like to tell students
                         of 11th or 12th or even FY is that don't wait for your college 
-                        / schools to teach you something. The internet already has everything 
-                        you need. Search the thing you're interested in and start learning.
+                        / school to teach you something. Learn things on your own but don't 
+                        completely drop out of schools or colleges since that is important too.
+                        The internet already has everything you need. Search the thing you're 
+                        interested in and start learning. <br />
                         I always copy-paste this quote whenever I have a chance-
                         <span className="quote">Don’t let schooling interfere with your 
                         education.<br /> - Mark Twain</span>
