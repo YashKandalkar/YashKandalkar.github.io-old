@@ -39,7 +39,7 @@ const Main = () => {
                 >
                     <div style={{textAlign: 'right'}}>Hey, hello there!</div>
                     <div>
-                        I am Yash Kandalkar. I started coding / programming when I was
+                        I am Yash Kandalkar. I started coding when I was
                         16. I started out with Python since it is very easy to learn 
                         for a beginner and also teaches many programming principles.
                         I started solving simple problems in Python and learning about
