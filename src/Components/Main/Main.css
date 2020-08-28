@@ -15,18 +15,18 @@
     width: 100%;
     opacity: 1;
     overflow-y: scroll;
-    color: black;
-    font-family: Arbutus Slab;
+    color: #c5c5c5;
+    font-family: "Roboto", Arbutus Slab;
     background: transparent;
     z-index: -1;
     line-height: 1.5;
 }
 
 .top{
-    width: 100%;
     height: 30%;
+    margin: 0 60px;
     display: flex;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #c5c5c5;
     align-items: center;
     justify-content: center;
 }
@@ -34,7 +34,7 @@
 .top>.greetings{
    text-align: center;
    font-size: 4em;
-   font-family: Sofia;
+   font-family: "Roboto", Sofia;
 }
 
 .about-me{
@@ -50,6 +50,7 @@
     text-align: center;
     font-style: italic;
     margin: 20px 0;
+    color: #aaa;
 }
 
 #main-content::-webkit-scrollbar {
@@ -71,5 +72,8 @@
     }
     .top>.greetings{
         font-size: 2em;
+    }
+    .top{
+        margin: 0 30px;
     }
 }

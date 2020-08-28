@@ -5,12 +5,6 @@ import {
     motion
 } from 'framer-motion';
 
-// IMAGES
-import tictactoe from '../../assets/tictactoe.png';
-import canary from '../../assets/canary.png';
-import chatitdude from '../../assets/chatitdude.png';
-import tachyons from '../../assets/tachyons.png';
-
 const Projects = ({ isOpen }) => {
     const list = {
       visible: {
@@ -51,10 +45,18 @@ const Projects = ({ isOpen }) => {
                 id='project-items-container'
             >
                 <ProjectItem 
+                    name="Track Your Day"
+                    description="A website to keep a track on your daily activities"
+                    variant={item}
+                    img={"/assets/track-your-day.webp"}
+                    url={"https://YashKandalkar.github.io/track-your-day"}
+                />
+
+                <ProjectItem 
                     name="Canary"
                     description="A prototype site for streaming music"
                     variant={item}
-                    img={canary}
+                    img={"/assets/canary.webp"}
                     url={"https://YashKandalkar.github.io/canary"}
                 />
 
@@ -62,7 +64,7 @@ const Projects = ({ isOpen }) => {
                     name="Tic Tac Toe"
                     description="A multiplayer TicTacToe game using Firebase"
                     variant={item}
-                    img={tictactoe}
+                    img={"/assets/tictactoe.webp"}
                     url={"https://games-12e17.web.app/"}
                 />
                 
@@ -70,7 +72,7 @@ const Projects = ({ isOpen }) => {
                     name="Chat It Dude"
                     description="What's better than talking to someone who won't judge you?"
                     variant={item}
-                    img={chatitdude}
+                    img={"/assets/chatitdude.webp"}
                     url={"http://chat-it-dude.herokuapp.com/"}
                 />
 
@@ -78,7 +80,7 @@ const Projects = ({ isOpen }) => {
                     name="Tachyons"
                     description="A hackathone project made to help illiterate people study financial policies"
                     variant={item}
-                    img={tachyons}
+                    img={"/assets/tachyons.webp"}
                     url={"https://YashKandalkar.github.io/tachyons"}
                 />
                 
