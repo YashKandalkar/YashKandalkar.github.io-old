@@ -44,6 +44,14 @@ const Projects = ({ isOpen }) => {
                 variants={list}
                 id='project-items-container'
             >
+                <ProjectItem
+                    name="Collabora"
+                    description="A site to (Collabora)tively solve online MCQs!"
+                    variant={item}
+                    img={"/assets/collabora.webp"}
+                    url={"https://github.com/YashKandalkar/Collabora"}
+                />
+
                 <ProjectItem 
                     name="Track Your Day"
                     description="A website to keep a track on your daily activities"
@@ -61,14 +69,6 @@ const Projects = ({ isOpen }) => {
                 />
 
                 <ProjectItem 
-                    name="Tic Tac Toe"
-                    description="A multiplayer TicTacToe game using Firebase"
-                    variant={item}
-                    img={"/assets/tictactoe.webp"}
-                    url={"https://games-12e17.web.app/"}
-                />
-                
-                <ProjectItem 
                     name="Chat It Dude"
                     description="What's better than talking to someone who won't judge you?"
                     variant={item}
@@ -78,7 +78,7 @@ const Projects = ({ isOpen }) => {
 
                 <ProjectItem 
                     name="Tachyons"
-                    description="A hackathone project made to help illiterate people study financial policies"
+                    description="A hackathon project made to help illiterate people study financial policies"
                     variant={item}
                     img={"/assets/tachyons.webp"}
                     url={"https://YashKandalkar.github.io/tachyons"}
